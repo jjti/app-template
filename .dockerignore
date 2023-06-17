@@ -22,5 +22,6 @@
 **/go.work
 fly.toml
 
-# Output
-/dst
+# UI output
+/ui/
+!/ui/out

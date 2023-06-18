@@ -7,7 +7,7 @@ dev/api:
 	@npx nodemon --watch '**/*.go' --ext go --signal SIGTERM --exec 'go' run .
 
 dev/ui:
-	@cd ui && npm run dev
+	@npm run dev
 
 go/lint:
 	@golangci-lint run api db
@@ -17,7 +17,6 @@ go/fix:
 
 deps:
 	@npm install
-	@cd ui && npm install
 	@go mod tidy
 	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest
 	@go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
@@ -28,9 +27,8 @@ deps:
 
 .PHONY: proto
 proto:
-	@rm -rf ./pb
-	@buf generate
-	@npx swagger-typescript-api --path ./pb/service.swagger.json --output ./pb/client --name index.ts --api-class-name EchoService
+	@cd pb && buf generate
+	@npx swagger-typescript-api --path ./pb/service.swagger.json --output ./pb/client --name index.ts --api-class-name EchoService --silent
 
 deploy: ui
 	@fly deploy

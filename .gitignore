@@ -24,8 +24,8 @@ go.work
 node_modules
 
 # esbuild output besides index.html
-/ui/static/*
-!/ui/static/index.html
+/ui/out/*
+!/ui/out/index.html
 
 # TF dependencies
 /tf/.terraform

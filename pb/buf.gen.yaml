@@ -1,16 +1,16 @@
 version: v1
 plugins:
   - plugin: go
-    out: pb
+    out: .
   - plugin: go-grpc
-    out: pb
+    out: .
   - plugin: grpc-gateway
-    out: pb
+    out: .
     opt:
       - generate_unbound_methods=true
   - plugin: buf.build/bufbuild/validate-go
-    out: pb
+    out: .
   - plugin: openapiv2
-    out: pb
+    out: .
     opt:
       - generate_unbound_methods=true

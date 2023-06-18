@@ -83,8 +83,7 @@ linters-settings:
     sections:
       - standard # Standard section: captures all standard packages.
       - default # Default section: contains all imports that could not be matched to another section type.
-      - prefix(github.com/hashicorp)
-      - prefix(github.com/hashicorp/cloud-consul-telemetry-gateway) # Custom section: groups all imports with the specified Prefix.
+      - prefix(github.com/jjtimmons)
 
   exhaustive:
     # Program elements to check for exhaustiveness.

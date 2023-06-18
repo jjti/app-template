@@ -5,12 +5,12 @@ import (
 	"fmt"
 
 	"github.com/google/uuid"
-	"github.com/jjtimmons/sblast/db"
-	pb "github.com/jjtimmons/sblast/pb/server"
+	"github.com/hashicorp/go-hclog"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	"github.com/hashicorp/go-hclog"
+	"github.com/jjtimmons/sblast/db"
+	pb "github.com/jjtimmons/sblast/pb/server"
 )
 
 func (s *service) Echo(ctx context.Context, req *pb.EchoRequest) (*pb.EchoResponse, error) {

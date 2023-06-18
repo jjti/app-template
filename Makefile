@@ -14,6 +14,7 @@ go/lint:
 
 go/fix:
 	@golangci-lint run api db --fix
+	@go mod tidy
 
 deps:
 	@npm install

@@ -13,7 +13,7 @@
 **/*.test
 
 # Output of the go coverage tool, specifically when used with LiteIDE
-**/*.out
+*.out
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
@@ -25,3 +25,6 @@ fly.toml
 # UI output
 /ui/
 !/ui/out
+
+# TF dependencies
+/tf/.terraform

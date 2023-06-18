@@ -3,7 +3,7 @@ export \
 AWS_REGION=us-east-1 \
 AWS_ACCESS_KEY_ID=$(op read op://Private/AWS\ Personal/AWS_ACCESS_KEY_ID --account my.1password.com) \
 AWS_SECRET_ACCESS_KEY=$(op read op://Private/AWS\ Personal/AWS_SECRET_ACCESS_KEY --account my.1password.com)
-dev/api:
+dev/server:
 	@npx nodemon --watch '**/*.go' --ext go --signal SIGTERM --exec 'go' run .
 
 dev/ui:
@@ -31,8 +31,15 @@ proto:
 	@cd pb && buf generate
 	@npx swagger-typescript-api --path ./pb/service.swagger.json --output ./pb/client --name index.ts --api-class-name EchoService --silent
 
-deploy: ui
+.PHONY: ui
+ui:
+	@npm run build
+
+fly/deploy: ui
 	@fly deploy
+
+fly/dashboard:
+	@fly dashboard
 
 # Get creds from 1password: \
 export \

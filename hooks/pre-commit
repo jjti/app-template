@@ -1,0 +1,9 @@
+#!/bin/sh
+
+exec 1>&2
+
+echo "running go/fix..."
+make go/fix
+
+echo "running js/fix..."
+make js/fix

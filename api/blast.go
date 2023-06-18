@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/biogo/ncbi/blast"
-	pb "github.com/jjtimmons/sblast/gen/sblast"
+	pb "github.com/jjtimmons/sblast/gen/server"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 

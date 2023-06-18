@@ -20,5 +20,9 @@
 # Go workspace file
 go.work
 
-# Output
-/dst
+# Node dependencies
+node_modules
+
+# esbuild output besides index.html
+/ui/static/*
+!/ui/static/index.html

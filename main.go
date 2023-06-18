@@ -7,7 +7,7 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/jjtimmons/sblast/api"
-	pb "github.com/jjtimmons/sblast/gen/sblast"
+	pb "github.com/jjtimmons/sblast/gen/server"
 
 	"github.com/hashicorp/go-hclog"
 )
@@ -24,7 +24,7 @@ func main() {
 	}
 
 	// register ui
-	fileServer := http.FileServer(http.Dir("./ui/out"))
+	fileServer := http.FileServer(http.Dir("./ui/static"))
 	mux.HandlePath("GET", "/{dir_path=**}", func(w http.ResponseWriter, r *http.Request, pathParams map[string]string) {
 		fileServer.ServeHTTP(w, r)
 	})

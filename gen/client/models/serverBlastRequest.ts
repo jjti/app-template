@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
-export type sblastBlastResponse = {
-    rid?: string;
+export type serverBlastRequest = {
+    seq?: string;
 };
 

@@ -1,7 +1,7 @@
 package api
 
 import (
-	pb "github.com/jjtimmons/sblast/gen/sblast"
+	pb "github.com/jjtimmons/sblast/gen/server"
 )
 
 type service struct {

@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: sblast.proto
 
-package sblast
+package server
 
 import (
 	context "context"
@@ -35,7 +35,7 @@ func NewSemanticBlastServiceClient(cc grpc.ClientConnInterface) SemanticBlastSer
 
 func (c *semanticBlastServiceClient) Blast(ctx context.Context, in *BlastRequest, opts ...grpc.CallOption) (*BlastResponse, error) {
 	out := new(BlastResponse)
-	err := c.cc.Invoke(ctx, "/sblast.SemanticBlastService/Blast", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/server.SemanticBlastService/Blast", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _SemanticBlastService_Blast_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sblast.SemanticBlastService/Blast",
+		FullMethod: "/server.SemanticBlastService/Blast",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(SemanticBlastServiceServer).Blast(ctx, req.(*BlastRequest))
@@ -92,7 +92,7 @@ func _SemanticBlastService_Blast_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var SemanticBlastService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "sblast.SemanticBlastService",
+	ServiceName: "server.SemanticBlastService",
 	HandlerType: (*SemanticBlastServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

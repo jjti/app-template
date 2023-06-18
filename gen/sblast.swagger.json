@@ -23,7 +23,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/sblastBlastResponse"
+              "$ref": "#/definitions/serverBlastResponse"
             }
           },
           "default": {
@@ -39,7 +39,7 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/sblastBlastRequest"
+              "$ref": "#/definitions/serverBlastRequest"
             }
           }
         ],
@@ -78,7 +78,7 @@
         }
       }
     },
-    "sblastBlastRequest": {
+    "serverBlastRequest": {
       "type": "object",
       "properties": {
         "seq": {
@@ -86,7 +86,7 @@
         }
       }
     },
-    "sblastBlastResponse": {
+    "serverBlastResponse": {
       "type": "object",
       "properties": {
         "rid": {

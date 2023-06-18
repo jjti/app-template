@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package sblast;
-option go_package = "./sblast";
+package server;
+option go_package = "./server";
 
 import "google/api/annotations.proto";
 import "validate/validate.proto";

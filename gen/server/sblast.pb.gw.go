@@ -2,11 +2,11 @@
 // source: sblast.proto
 
 /*
-Package sblast is a reverse proxy.
+Package server is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package sblast
+package server
 
 import (
 	"context"
@@ -79,7 +79,7 @@ func RegisterSemanticBlastServiceHandlerServer(ctx context.Context, mux *runtime
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/sblast.SemanticBlastService/Blast", runtime.WithHTTPPathPattern("/v1/blast"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/server.SemanticBlastService/Blast", runtime.WithHTTPPathPattern("/v1/blast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -143,7 +143,7 @@ func RegisterSemanticBlastServiceHandlerClient(ctx context.Context, mux *runtime
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/sblast.SemanticBlastService/Blast", runtime.WithHTTPPathPattern("/v1/blast"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/server.SemanticBlastService/Blast", runtime.WithHTTPPathPattern("/v1/blast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

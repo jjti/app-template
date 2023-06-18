@@ -8,7 +8,7 @@ export type { OpenAPIConfig } from './core/OpenAPI';
 
 export type { protobufAny } from './models/protobufAny';
 export type { rpcStatus } from './models/rpcStatus';
-export type { sblastBlastRequest } from './models/sblastBlastRequest';
-export type { sblastBlastResponse } from './models/sblastBlastResponse';
+export type { serverBlastRequest } from './models/serverBlastRequest';
+export type { serverBlastResponse } from './models/serverBlastResponse';
 
 export { SemanticBlastServiceService } from './services/SemanticBlastServiceService';

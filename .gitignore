@@ -26,3 +26,6 @@ node_modules
 # esbuild output besides index.html
 /ui/static/*
 !/ui/static/index.html
+
+# TF dependencies
+/tf/.terraform

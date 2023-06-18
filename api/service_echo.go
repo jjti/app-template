@@ -4,6 +4,8 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/google/uuid"
+	"github.com/jjtimmons/sblast/db"
 	pb "github.com/jjtimmons/sblast/gen/server"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -20,7 +22,17 @@ func (s *service) Echo(ctx context.Context, req *pb.EchoRequest) (*pb.EchoRespon
 		return nil, status.Error(codes.InvalidArgument, err.Error())
 	}
 
-	log.Info("received echo request", "input", req.GetInput())
+	// write the echo to the db
+	id := uuid.NewString()
+	if err := s.store.Create(ctx, db.Echo{
+		ID:    id,
+		Value: req.GetInput(),
+	}); err != nil {
+		log.Error("failed to insert echo to the database", "error", err)
+		return nil, status.Error(codes.Internal, "failed to add echo to store")
+	}
+
+	log.Info("received echo request", "input", req.GetInput(), "id", id)
 	return &pb.EchoResponse{
 		Output: fmt.Sprintf("echo: %v", req.GetInput()),
 	}, nil

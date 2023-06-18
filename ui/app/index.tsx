@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   ChakraProvider,
-  Container,
   Heading,
   Input,
   Text,
@@ -43,7 +42,6 @@ function App() {
                 setErr(resp.statusText);
               }
             } catch (err) {
-              console.error(err.error);
               setErr(err.error.message);
             }
           }}

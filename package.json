@@ -3,7 +3,7 @@
     "build": "esbuild ./ui/index.tsx --bundle --outfile=./ui/out/index.js",
     "dev": "esbuild ./ui/index.tsx --bundle --watch --sourcemap --outfile=./ui/out/index.js",
     "fix": "prettier --write ./ui/**/*.tsx",
-    "preinstall": "git config core.hooksPath hooks"
+    "preinstall": "git config core.hooksPath scripts"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.7.0",

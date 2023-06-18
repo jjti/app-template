@@ -4,16 +4,16 @@ AWS_REGION=us-east-1 \
 AWS_ACCESS_KEY_ID=$(op read op://Private/AWS\ Personal/AWS_ACCESS_KEY_ID --account my.1password.com) \
 AWS_SECRET_ACCESS_KEY=$(op read op://Private/AWS\ Personal/AWS_SECRET_ACCESS_KEY --account my.1password.com)
 dev/server:
-	@npx nodemon --watch '**/*.go' --ext go --signal SIGTERM --exec 'go' run .
+	@npx nodemon --watch '**/*.go' --ext go --signal SIGTERM --exec 'go' run ./cmd
 
 dev/ui:
 	@npm run dev
 
 go/lint:
-	@golangci-lint run api db
+	@golangci-lint run --config ./.golangci.yaml
 
 go/fix:
-	@golangci-lint run api db --fix
+	@golangci-lint run --fix --config ./.golangci.yaml
 	@go mod tidy
 
 js/fix:

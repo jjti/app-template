@@ -6,12 +6,12 @@ import (
 	"net/http"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/jjtimmons/sblast/api"
-	pb "github.com/jjtimmons/sblast/pb/server"
-	"github.com/jjtimmons/sblast/pkg/metrics"
+	"github.com/hashicorp/go-hclog"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 
-	"github.com/hashicorp/go-hclog"
+	pb "github.com/jjtimmons/sblast/pb/server"
+	"github.com/jjtimmons/sblast/pkg/api"
+	"github.com/jjtimmons/sblast/pkg/metrics"
 )
 
 func main() {

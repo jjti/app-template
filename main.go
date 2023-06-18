@@ -1,25 +1,33 @@
 package main
 
 import (
-	"fmt"
+	"context"
 	"log"
 	"net/http"
+
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
+	"github.com/jjtimmons/sblast/api"
+	pb "github.com/jjtimmons/sblast/gen/sblast"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 func main() {
-	fmt.Printf("starting server")
+	logger := hclog.Default()
+	logger.Info("starting server")
 
-	http.HandleFunc("/hello", func(w http.ResponseWriter, req *http.Request) {
-		fmt.Println("got a hello request")
-		fmt.Fprintf(w, "hello\n")
-	})
+	mux := runtime.NewServeMux()
 
+	// register gateway
+	if err := pb.RegisterSemanticBlastServiceHandlerServer(context.Background(), mux, api.New()); err != nil {
+		log.Fatal("failed to register gateway", "error", err)
+	}
+
+	// register ui
 	fileServer := http.FileServer(http.Dir("./ui/out"))
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	mux.HandlePath("GET", "/{dir_path=**}", func(w http.ResponseWriter, r *http.Request, pathParams map[string]string) {
 		fileServer.ServeHTTP(w, r)
 	})
 
-	if err := http.ListenAndServe(":8080", nil); err != nil {
-		log.Fatal(fmt.Printf("failed to host service: %v", err))
-	}
+	log.Fatal(http.ListenAndServe(":8080", mux))
 }

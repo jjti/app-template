@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package sblast;
+option go_package = "./sblast";
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+service SemanticBlastService {
+	rpc Blast(BlastRequest) returns (BlastResponse) {
+		option (google.api.http) = {
+			post: "/v1/blast";
+			body: "*"
+		};
+	}
+}
+
+message BlastRequest {
+	string seq = 1 [(validate.rules).string.min_len = 11];
+}
+
+message BlastResponse {
+	string rid = 1;
+}
+

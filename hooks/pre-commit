@@ -10,3 +10,5 @@ make js/fix
 
 echo "running tf/fix..."
 make tf/fix
+
+git add .

@@ -2,7 +2,8 @@
   "scripts": {
     "build": "esbuild ./ui/index.tsx --bundle --outfile=./ui/out/index.js",
     "dev": "esbuild ./ui/index.tsx --bundle --watch --sourcemap --outfile=./ui/out/index.js",
-    "fix": "prettier --write ./ui/**/*.tsx",
+    "fix": "prettier --write ./ui/**/*.tsx && eslint ui --ext ts,tsx --fix",
+    "lint": "eslint ui --ext ts,tsx --quiet",
     "preinstall": "git config core.hooksPath scripts"
   },
   "dependencies": {
@@ -14,9 +15,18 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.2.12",
     "@types/react-dom": "^18.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.59.11",
+    "@typescript-eslint/parser": "^5.59.11",
     "esbuild": "^0.18.4",
+    "eslint": "^8.43.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sort-destructure-keys": "^1.5.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-typescript-sort-keys": "^2.3.0",
     "nodemon": "^2.0.22",
     "openapi-typescript-codegen": "^0.24.0",
     "prettier": "^2.8.8",

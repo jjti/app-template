@@ -1,13 +1,8 @@
+import { Box, Button, ChakraProvider, Heading, Input, Text } from "@chakra-ui/react";
+
 import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
-import {
-  Box,
-  Button,
-  ChakraProvider,
-  Heading,
-  Input,
-  Text,
-} from "@chakra-ui/react";
+
 import { EchoService } from "../pb/client";
 
 const CLIENT = new EchoService();
@@ -19,13 +14,10 @@ function App() {
 
   return (
     <ChakraProvider>
-      <Box maxWidth="80%" margin="auto" marginTop="5em">
+      <Box margin="auto" marginTop="5em" maxWidth="80%">
         <Heading>Echo App</Heading>
 
-        <Input
-          onChange={(event) => setInput(event.currentTarget.value)}
-          value={input}
-        />
+        <Input value={input} onChange={event => setInput(event.currentTarget.value)} />
         <Button
           onClick={async () => {
             setOutput("");
@@ -56,5 +48,7 @@ function App() {
 }
 
 const container = document.getElementById("root");
-const root = createRoot(container!);
-root.render(<App />);
+if (container !== null) {
+  const root = createRoot(container);
+  root.render(<App />);
+}

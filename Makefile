@@ -28,9 +28,9 @@ deps:
 
 .PHONY: proto
 proto:
-	@rm -rf ./gen
+	@rm -rf ./pb
 	@buf generate
-	@npx swagger-typescript-api --path ./gen/service.swagger.json --output ./gen/client --name index.ts --api-class-name EchoService
+	@npx swagger-typescript-api --path ./pb/service.swagger.json --output ./pb/client --name index.ts --api-class-name EchoService
 
 deploy: ui
 	@fly deploy

@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/jjtimmons/sblast/db"
-	pb "github.com/jjtimmons/sblast/gen/server"
+	pb "github.com/jjtimmons/sblast/pb/server"
 )
 
 type service struct {

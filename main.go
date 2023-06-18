@@ -7,7 +7,7 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/jjtimmons/sblast/api"
-	pb "github.com/jjtimmons/sblast/gen/server"
+	pb "github.com/jjtimmons/sblast/pb/server"
 
 	"github.com/hashicorp/go-hclog"
 )

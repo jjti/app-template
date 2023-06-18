@@ -8,7 +8,7 @@ import {
   Input,
   Text,
 } from "@chakra-ui/react";
-import { EchoService } from "../../gen/client";
+import { EchoService } from "../../pb/client";
 
 const CLIENT = new EchoService();
 

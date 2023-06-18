@@ -7,3 +7,6 @@ make go/fix
 
 echo "running js/fix..."
 make js/fix
+
+echo "running tf/fix..."
+make tf/fix

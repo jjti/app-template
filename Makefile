@@ -19,6 +19,9 @@ go/fix:
 js/fix:
 	@npm run fix
 
+tf/fix:
+	@terraform fmt -recursive .
+
 deps:
 	@npm install
 	@go mod tidy

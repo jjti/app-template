@@ -5,12 +5,12 @@ import (
 )
 
 type service struct {
-	pb.UnimplementedSemanticBlastServiceServer
+	pb.UnimplementedEchoServiceServer
 }
 
-var _ pb.SemanticBlastServiceServer = &service{}
+var _ pb.EchoServiceServer = &service{}
 
 // New returns a new gRPC servers' HTTP handler for use on the same address serving the UI.
-func New() pb.SemanticBlastServiceServer {
+func New() pb.EchoServiceServer {
 	return new(service)
 }

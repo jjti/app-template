@@ -1,12 +1,12 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "sblast.proto",
+    "title": "service.proto",
     "version": "version not set"
   },
   "tags": [
     {
-      "name": "SemanticBlastService"
+      "name": "EchoService"
     }
   ],
   "consumes": [
@@ -16,14 +16,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/blast": {
+    "/v1/echo": {
       "post": {
-        "operationId": "SemanticBlastService_Blast",
+        "operationId": "EchoService_Echo",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/serverBlastResponse"
+              "$ref": "#/definitions/serverEchoResponse"
             }
           },
           "default": {
@@ -39,12 +39,12 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/serverBlastRequest"
+              "$ref": "#/definitions/serverEchoRequest"
             }
           }
         ],
         "tags": [
-          "SemanticBlastService"
+          "EchoService"
         ]
       }
     }
@@ -78,18 +78,18 @@
         }
       }
     },
-    "serverBlastRequest": {
+    "serverEchoRequest": {
       "type": "object",
       "properties": {
-        "seq": {
+        "input": {
           "type": "string"
         }
       }
     },
-    "serverBlastResponse": {
+    "serverEchoResponse": {
       "type": "object",
       "properties": {
-        "rid": {
+        "output": {
           "type": "string"
         }
       }

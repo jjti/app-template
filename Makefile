@@ -23,4 +23,4 @@ deps:
 proto:
 	@rm -rf ./gen
 	@buf generate
-	@npx openapi -i ./gen/sblast.swagger.json -o ./gen/client
+	@npx swagger-typescript-api --path ./gen/service.swagger.json --output ./gen/client --name index.ts --api-class-name EchoService

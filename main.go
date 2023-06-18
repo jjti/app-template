@@ -16,10 +16,11 @@ func main() {
 	logger := hclog.Default()
 	logger.Info("starting server")
 
+	// create the router
 	mux := runtime.NewServeMux()
 
 	// register gateway
-	if err := pb.RegisterSemanticBlastServiceHandlerServer(context.Background(), mux, api.New()); err != nil {
+	if err := pb.RegisterEchoServiceHandlerServer(context.Background(), mux, api.New()); err != nil {
 		log.Fatal("failed to register gateway", "error", err)
 	}
 

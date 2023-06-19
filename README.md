@@ -1,5 +1,7 @@
 # app-template
 
+A template for a three-tier web app hosted by Fly.io using React, Go, gRPC, and DynamoDB.
+
 ## Components
 
 - platform: [fly.io](https://fly.io/)
@@ -31,6 +33,7 @@
 ## Development
 
 ```bash
+# start server, restart on changes to any file
 source ./scripts/aws-creds
 make dev
 ```

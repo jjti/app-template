@@ -44,7 +44,7 @@ make proto
 ## Deploy
 
 ```bash
-# terraform
+# terraform apply
 source ./scripts/aws-creds
 make tf/apply
 
@@ -53,6 +53,6 @@ make fly/deploy
 
 # set fly secrets (only needed once)
 fly secrets set AWS_REGION=us-east-1
-fly secrets set AWS_ACCESS_KEY_ID=$AWS_SECRET_ACCESS_KEY
+fly secrets set AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
 fly secrets set AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 ```

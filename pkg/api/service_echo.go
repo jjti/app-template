@@ -9,8 +9,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	pb "github.com/jjtimmons/sblast/pb/server"
-	"github.com/jjtimmons/sblast/pkg/db"
+	pb "github.com/jjtimmons/echo/pb/server"
+	"github.com/jjtimmons/echo/pkg/db"
 )
 
 func (s *service) Echo(ctx context.Context, req *pb.EchoRequest) (*pb.EchoResponse, error) {

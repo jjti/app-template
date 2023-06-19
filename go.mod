@@ -1,4 +1,4 @@
-module github.com/jjtimmons/sblast
+module github.com/jjtimmons/echo
 
 go 1.20
 

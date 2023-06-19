@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 
-	pb "github.com/jjtimmons/sblast/pb/server"
-	"github.com/jjtimmons/sblast/pkg/db"
+	pb "github.com/jjtimmons/echo/pb/server"
+	"github.com/jjtimmons/echo/pkg/db"
 )
 
 type service struct {

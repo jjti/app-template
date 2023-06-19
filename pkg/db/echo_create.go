@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/dynamodb"
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/jjtimmons/sblast/pkg/metrics"
+	"github.com/jjtimmons/echo/pkg/metrics"
 )
 
 // Create adds an echo to DDB.

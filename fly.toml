@@ -11,5 +11,5 @@ primary_region = "iad"
   min_machines_running = 0
 
 [metrics]
-  port = 8080 # default for most prometheus clients
-  path = "/metrics" # default for most prometheus clients
+  port = 8080
+  path = "/metrics"

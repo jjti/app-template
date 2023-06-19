@@ -4,7 +4,7 @@ A template for a three-tier web app hosted by Fly.io using React, Go, gRPC, and 
 
 ## Components
 
-- platform: [fly.io](https://fly.io/)
+- platform: [Fly.io](https://fly.io/)
 
 - ui:
 
@@ -36,6 +36,9 @@ A template for a three-tier web app hosted by Fly.io using React, Go, gRPC, and 
 # start server, restart on changes to any file
 source ./scripts/aws-creds
 make dev
+
+# make changes to api specs
+make proto
 ```
 
 ## Deploy
@@ -45,6 +48,11 @@ make dev
 source ./scripts/aws-creds
 make tf/apply
 
-# fly
+# deploy fly machine
 make fly/deploy
+
+# set fly secrets (only needed once)
+fly secrets set AWS_REGION=us-east-1
+fly secrets set AWS_ACCESS_KEY_ID=$AWS_SECRET_ACCESS_KEY
+fly secrets set AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 ```

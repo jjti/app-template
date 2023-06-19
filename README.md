@@ -1,5 +1,7 @@
 # app-template
 
+## Components
+
 - platform: [fly.io](https://fly.io/)
 
 - ui:
@@ -20,6 +22,26 @@
 
   - language: Go
   - metrics: [prometheus](https://pkg.go.dev/github.com/prometheus/client_golang/prometheus)
+  - linter/formatter: [golangci-lint](https://github.com/golangci/golangci-lint)
+  - live reloading: [nodemon](https://github.com/remy/nodemon)
 
 - db: [DynamoDB](https://docs.aws.amazon.com/dynamodb/index.html)
 - infra: [Terraform](https://developer.hashicorp.com/terraform/docs)
+
+## Development
+
+```bash
+source ./scripts/aws-creds
+make dev
+```
+
+## Deploy
+
+```bash
+# terraform
+source ./scripts/aws-creds
+make tf/apply
+
+# fly
+make fly/deploy
+```

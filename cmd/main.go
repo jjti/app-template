@@ -4,10 +4,14 @@ import (
 	"context"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/hashicorp/go-hclog"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+
+	"github.com/hashicorp/go-hclog"
 
 	pb "github.com/jjtimmons/echo/pb/server"
 	"github.com/jjtimmons/echo/pkg/api"
@@ -52,5 +56,25 @@ func main() {
 		log.Fatal(err)
 	}
 
-	log.Fatal(http.ListenAndServe(":8080", mux))
+	// make the server
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: mux,
+	}
+
+	// make a done channel
+	done := make(chan os.Signal, 1)
+	signal.Notify(done, os.Interrupt, syscall.SIGINT, syscall.SIGTERM)
+	go func() {
+		sig := <-done
+		logger.Error("shutdown signal received", "signal", sig)
+		if err := server.Shutdown(ctx); err != nil {
+			logger.Error("failed to shut down server", "error", err)
+		}
+	}()
+
+	// start server and wait
+	if err := server.ListenAndServe(); err != http.ErrServerClosed {
+		logger.Error("failure seen in server", "error", err)
+	}
 }
